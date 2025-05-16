@@ -1,1 +1,1 @@
-# Stable-O-gram_YTS2025
+Stable-O-gram stuff, add stuff as you learn stuff. For TAs and students
