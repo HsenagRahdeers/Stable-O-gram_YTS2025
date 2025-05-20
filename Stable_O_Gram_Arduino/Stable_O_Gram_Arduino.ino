@@ -1,4 +1,4 @@
-// Pin definitions (DOUT, SCK for each HX711)
+
 const int DOUT[4] = {2, 4, 6, 8};   // HX711 DOUT pins
 const int SCLK[4]  = {3, 5, 7, 9};   // HX711 SCK pins
 
@@ -57,17 +57,19 @@ void setup() {
 
 void loop() {
   long values[4];
+  unsigned long timestamp = micros(); 
   for (int i = 0; i < 4; i++) {
     values[i] = readHX711(DOUT[i], SCLK[i]) - tareOffsets[i];
   }
-  
-    Serial.print(abs(values[0]));
-   Serial.print(',');
-    Serial.print(abs(values[1]));
+    Serial.print(timestamp);  
     Serial.print(',');
-    Serial.print(abs(values[2]));
+    Serial.print(values[0]);
     Serial.print(',');
-    Serial.print(abs(values[3]));
+    Serial.print(values[1]);
+    Serial.print(',');
+    Serial.print(values[2]);
+    Serial.print(',');
+    Serial.print(values[3]);
   
   Serial.println();
 }
